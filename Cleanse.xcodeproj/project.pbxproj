@@ -102,7 +102,7 @@
 				TargetAttributes = {
 					A117C1D71CE6590A00DF94B4 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = K2L4T5WD2L;
+						DevelopmentTeam = 78MFJK7U55;
 					};
 				};
 			};
@@ -263,7 +263,7 @@
 				INFOPLIST_FILE = grab3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = emilyosowski.grab3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cleanse;
 				PRODUCT_NAME = Cleanse;
 				PROVISIONING_PROFILE = "";
 			};
@@ -278,7 +278,7 @@
 				INFOPLIST_FILE = grab3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = emilyosowski.grab3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cleanse;
 				PRODUCT_NAME = Cleanse;
 				PROVISIONING_PROFILE = "";
 			};
@@ -303,6 +303,7 @@
 				A117C1EC1CE6590A00DF94B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

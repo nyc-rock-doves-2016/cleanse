@@ -19,23 +19,24 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     // setting a variable to connect the CustomImageFlowLayout
     var images:NSMutableArray!
     // creates uninitialized array to push images
+    var imageAssets:PHFetchResult!
+    // creates uninitialized array to push images
     var totalImageCountNeeded:Int!
     // how many images we want to pull
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fetchPhotos()
-        
         collectionViewLayout = CustomImageFlowLayout()
         collectionView.collectionViewLayout = collectionViewLayout
-        collectionView.backgroundColor = .blackColor()
+        collectionView.backgroundColor = .whiteColor()
+        self.fetchPhotos()
     }
     
     // like a runner, calls our fetch photo method upon opening of the app, calls layout setup methods
     
     func fetchPhotos () {
         images = NSMutableArray()
-        totalImageCountNeeded = 25
+        totalImageCountNeeded = 12
         self.fetchPhotoAtIndexFromEnd(0)
     }
     
@@ -49,19 +50,24 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         
         let requestOptions = PHImageRequestOptions()
         requestOptions.synchronous = true
+        requestOptions.networkAccessAllowed = false
         
-        // request only thumbnails by setting synchronous to true
+        // request only thumbnails by setting synchronous to true, ignore cloud photos
         
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: true)]
+        fetchOptions.fetchLimit = totalImageCountNeeded
         
         // filtering with fetchoptions
         
         if let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithMediaType(PHAssetMediaType.Image, options: fetchOptions) {
             
             if fetchResult.count > 0 {
+                
+                imageAssets = fetchResult
+                
                 imgManager.requestImageForAsset(fetchResult.objectAtIndex(fetchResult.count - 1 - index) as! PHAsset, targetSize: view.frame.size, contentMode: PHImageContentMode.AspectFill, options: requestOptions, resultHandler: { (image, _) in
-                    
+
                     self.images.addObject(image!)
                     
                     // adds images
@@ -82,14 +88,13 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 25
+        return 12
     }
     
     // how many items we want to return
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! ImageCollectionViewCell
-        print(self.images)
         
         // calling a cell reusable performs iteration
         
@@ -102,9 +107,23 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         return cell
     }
     
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
     
-    // status bar hidden
+    @IBAction func deleteLast() {
+
+        PHPhotoLibrary.sharedPhotoLibrary().performChanges({
+            PHAssetChangeRequest.deleteAssets(self.imageAssets)
+            },
+           completionHandler: {(success, error)in
+            NSLog("\nDeleted Image -> %@", (success ? "Success":"Error!"))
+            if(success){
+                dispatch_async(dispatch_get_main_queue(), {
+                    print("Trashed")
+                })
+                self.fetchPhotos()
+                self.collectionView.reloadData()
+            }else{
+                print("Error: \(error)")
+            }
+        })
+    }
 }

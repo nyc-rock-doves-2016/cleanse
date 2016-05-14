@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gaO-r5-Urb">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="534"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VkS-B6-T6C">
                                     <size key="itemSize" width="198" height="198"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -54,14 +54,40 @@
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="Wo1-Zc-1CJ"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUv-qq-ONq">
+                                <rect key="frame" x="20" y="562" width="560" height="30"/>
+                                <state key="normal" title="Delete Selected">
+                                    <color key="titleColor" red="0.012904941099476486" green="0.00099597105897409103" blue="0.0013314324056306552" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteLast" destination="BYZ-38-t0r" eventType="touchUpInside" id="4HH-sP-Ct4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="gaO-r5-Urb" secondAttribute="trailing" id="2Je-6A-DxO"/>
                             <constraint firstItem="gaO-r5-Urb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="AG6-vx-8HQ"/>
+                            <constraint firstAttribute="trailing" secondItem="eUv-qq-ONq" secondAttribute="trailing" constant="20" id="GW6-tA-4Ba"/>
+                            <constraint firstItem="eUv-qq-ONq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="MCO-TZ-SvB"/>
+                            <constraint firstItem="gaO-r5-Urb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="PZj-Cw-MBP"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gaO-r5-Urb" secondAttribute="bottom" id="QLA-hG-fjE"/>
+                            <constraint firstItem="eUv-qq-ONq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="277" id="aZV-Wi-1wx"/>
+                            <constraint firstItem="eUv-qq-ONq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="542" id="dyd-bb-obb"/>
                             <constraint firstItem="gaO-r5-Urb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gXc-Fa-5gR"/>
+                            <constraint firstAttribute="trailing" secondItem="eUv-qq-ONq" secondAttribute="trailing" constant="277" id="jR3-ZY-0Eb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eUv-qq-ONq" secondAttribute="bottom" constant="8" id="rHH-D5-sgf"/>
+                            <constraint firstItem="eUv-qq-ONq" firstAttribute="top" secondItem="gaO-r5-Urb" secondAttribute="bottom" constant="8" id="vhC-Td-fzS"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="gXc-Fa-5gR"/>
+                                <exclude reference="aZV-Wi-1wx"/>
+                                <exclude reference="dyd-bb-obb"/>
+                                <exclude reference="jR3-ZY-0Eb"/>
+                                <exclude reference="QLA-hG-fjE"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="gaO-r5-Urb" id="dju-hU-lEc"/>

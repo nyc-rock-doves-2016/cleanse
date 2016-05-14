@@ -25,10 +25,18 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fetchPhotos()
-        
+
         collectionViewLayout = CustomImageFlowLayout()
         collectionView.collectionViewLayout = collectionViewLayout
         collectionView.backgroundColor = .blackColor()
+//        let pickerController = DKImagePickerController()
+//        
+//        pickerController.didSelectAssets = { (assets: [DKAsset]) in
+//            print("didSelectAssets")
+//            print(assets)
+//        }
+//        
+//        self.presentViewController(pickerController, animated: true) {}
     }
     
     // like a runner, calls our fetch photo method upon opening of the app, calls layout setup methods

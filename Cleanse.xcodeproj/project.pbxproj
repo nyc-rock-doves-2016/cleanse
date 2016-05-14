@@ -17,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F9DF763FB0007DC4A53EFCD /* Pods-Cleanse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cleanse.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cleanse/Pods-Cleanse.release.xcconfig"; sourceTree = "<group>"; };
+		94352B495A8855F246ABAEDE /* Pods-Cleanse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cleanse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cleanse/Pods-Cleanse.debug.xcconfig"; sourceTree = "<group>"; };
+		9ABE02089000DC7CF4A63CC0 /* Pods_Cleanse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cleanse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A117C1D81CE6590A00DF94B4 /* Cleanse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleanse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A117C1DB1CE6590A00DF94B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A117C1DD1CE6590A00DF94B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		A117C1E71CE6590A00DF94B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A117C1ED1CE67F2D00DF94B4 /* CustomImageFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageFlowLayout.swift; sourceTree = "<group>"; };
 		A117C1EF1CE67F4400DF94B4 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		C5E1F3341CE7ABB500767BD9 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,11 +43,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07E5928F3AB111AFAEE24928 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9ABE02089000DC7CF4A63CC0 /* Pods_Cleanse.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A117C1CF1CE6590900DF94B4 = {
 			isa = PBXGroup;
 			children = (
+				C5E1F3341CE7ABB500767BD9 /* Podfile */,
 				A117C1DA1CE6590A00DF94B4 /* grab3 */,
 				A117C1D91CE6590A00DF94B4 /* Products */,
+				D667909E5111CF8B1B3A8A2B /* Pods */,
+				07E5928F3AB111AFAEE24928 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +85,15 @@
 			path = grab3;
 			sourceTree = "<group>";
 		};
+		D667909E5111CF8B1B3A8A2B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94352B495A8855F246ABAEDE /* Pods-Cleanse.debug.xcconfig */,
+				8F9DF763FB0007DC4A53EFCD /* Pods-Cleanse.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A117C1EA1CE6590A00DF94B4 /* Build configuration list for PBXNativeTarget "Cleanse" */;
 			buildPhases = (
+				D916AEA3A4FC61D154F1D686 /* 📦 Check Pods Manifest.lock */,
 				A117C1D41CE6590A00DF94B4 /* Sources */,
 				A117C1D51CE6590A00DF94B4 /* Frameworks */,
 				A117C1D61CE6590A00DF94B4 /* Resources */,
+				F9CA50E5BB3D00B723931E8A /* 📦 Embed Pods Frameworks */,
+				B26B3FC8A8A83B1966681748 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,6 +163,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B26B3FC8A8A83B1966681748 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cleanse/Pods-Cleanse-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D916AEA3A4FC61D154F1D686 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F9CA50E5BB3D00B723931E8A /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cleanse/Pods-Cleanse-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A117C1D41CE6590A00DF94B4 /* Sources */ = {
@@ -256,6 +331,7 @@
 		};
 		A117C1EB1CE6590A00DF94B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94352B495A8855F246ABAEDE /* Pods-Cleanse.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -271,6 +347,7 @@
 		};
 		A117C1EC1CE6590A00DF94B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F9DF763FB0007DC4A53EFCD /* Pods-Cleanse.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -303,6 +380,7 @@
 				A117C1EC1CE6590A00DF94B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

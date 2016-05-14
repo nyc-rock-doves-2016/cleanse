@@ -68,7 +68,9 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! ImageCollectionViewCell
         print(self.images)
         
-        cell.imageView.image = self.images[0] as? UIImage
+        if indexPath.row < self.images.count {
+            cell.imageView.image = self.images[indexPath.row] as? UIImage
+        }
         
         return cell
     }

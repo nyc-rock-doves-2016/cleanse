@@ -14,6 +14,7 @@
 		A117C1E61CE6590A00DF94B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A117C1E41CE6590A00DF94B4 /* LaunchScreen.storyboard */; };
 		A117C1EE1CE67F2D00DF94B4 /* CustomImageFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A117C1ED1CE67F2D00DF94B4 /* CustomImageFlowLayout.swift */; };
 		A117C1F01CE67F4400DF94B4 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A117C1EF1CE67F4400DF94B4 /* ImageCollectionViewCell.swift */; };
+		A117C1F21CE7F65500DF94B4 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A117C1F11CE7F65500DF94B4 /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A117C1E71CE6590A00DF94B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A117C1ED1CE67F2D00DF94B4 /* CustomImageFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageFlowLayout.swift; sourceTree = "<group>"; };
 		A117C1EF1CE67F4400DF94B4 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		A117C1F11CE7F65500DF94B4 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				A117C1EF1CE67F4400DF94B4 /* ImageCollectionViewCell.swift */,
 				A117C1ED1CE67F2D00DF94B4 /* CustomImageFlowLayout.swift */,
 				A117C1DF1CE6590A00DF94B4 /* Main.storyboard */,
+				A117C1F11CE7F65500DF94B4 /* SecondViewController.swift */,
 				A117C1E21CE6590A00DF94B4 /* Assets.xcassets */,
 				A117C1E41CE6590A00DF94B4 /* LaunchScreen.storyboard */,
 				A117C1E71CE6590A00DF94B4 /* Info.plist */,
@@ -145,6 +148,7 @@
 				A117C1EE1CE67F2D00DF94B4 /* CustomImageFlowLayout.swift in Sources */,
 				A117C1DE1CE6590A00DF94B4 /* ViewController.swift in Sources */,
 				A117C1F01CE67F4400DF94B4 /* ImageCollectionViewCell.swift in Sources */,
+				A117C1F21CE7F65500DF94B4 /* SecondViewController.swift in Sources */,
 				A117C1DC1CE6590A00DF94B4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -72,7 +72,6 @@ class SecondViewController: UIViewController, UICollectionViewDataSource {
                 
                 indexSet.addIndex(imageCounter)
                 imageCounter+=1
-                print(indexSet)
                 
                 imgManager.requestImageForAsset(fetchResult.objectAtIndex(index) as! PHAsset, targetSize: view.frame.size, contentMode: PHImageContentMode.AspectFill, options: requestOptions, resultHandler: { (image, _) in
                     

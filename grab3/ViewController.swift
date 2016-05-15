@@ -7,17 +7,24 @@
 //
 
 import UIKit
+import Photos
 
 class ViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBAction func deleteAll() {
+        if let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithMediaType(PHAssetMediaType.Image, options: nil) {
+            PHPhotoLibrary.sharedPhotoLibrary().performChanges({
+                PHAssetChangeRequest.deleteAssets(fetchResult)
+                },
+               completionHandler: {(success, error)in
+                NSLog("\nDeleted Image -> %@", (success ? "Success":"Error!"))
+                if(success){
+                    dispatch_async(dispatch_get_main_queue(), {
+                        print("Trashed")
+                    })
+                }else{
+                    print("Error: \(error)")
+                }
+            })
+        }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 }

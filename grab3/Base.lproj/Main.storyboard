@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gaO-r5-Urb">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="521"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VkS-B6-T6C">
                                     <size key="itemSize" width="198" height="198"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -54,14 +54,31 @@
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="Wo1-Zc-1CJ"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRK-3P-Tyw">
+                                <rect key="frame" x="0.0" y="549" width="600" height="51"/>
+                                <state key="normal" title="Delete Selected"/>
+                                <connections>
+                                    <action selector="deleteLast" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eru-KH-UHn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="gaO-r5-Urb" secondAttribute="trailing" id="2Je-6A-DxO"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gaO-r5-Urb" secondAttribute="bottom" constant="59" id="2yZ-8h-nic"/>
                             <constraint firstItem="gaO-r5-Urb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="AG6-vx-8HQ"/>
+                            <constraint firstItem="IRK-3P-Tyw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="L3c-Ny-L6x"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IRK-3P-Tyw" secondAttribute="bottom" constant="21" id="LfX-5c-ace"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gaO-r5-Urb" secondAttribute="bottom" id="QLA-hG-fjE"/>
+                            <constraint firstItem="gaO-r5-Urb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="TUK-pg-QnL"/>
                             <constraint firstItem="gaO-r5-Urb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gXc-Fa-5gR"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="gXc-Fa-5gR"/>
+                                <exclude reference="QLA-hG-fjE"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="gaO-r5-Urb" id="dju-hU-lEc"/>

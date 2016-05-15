@@ -19,47 +19,32 @@ class SecondViewController: UIViewController, UICollectionViewDataSource {
     // setting a variable to connect the CustomImageFlowLayout
     var images:NSMutableArray!
     // creates uninitialized array to push images
-    var totalImageCountNeeded:Int!
+    var imageAssets:AnyObject!
+    // creates uninitialized array to push images
+    var totalImageCountNeeded = 15
     // how many images we want to pull
+    var imageCounter = 0
+    // counter to add indexes to index set for fetchresult subresult
+    var indexSet = NSMutableIndexSet()
+    // creates empty index set for fetchresult
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fetchPhotos()
-        
         collectionViewLayout = CustomImageFlowLayout()
         collectionView.collectionViewLayout = collectionViewLayout
-        collectionView.backgroundColor = .blackColor()
-        
-        //        var image = self.images[0] as! UIImage
-        //        var imgData: NSData = NSData(data: UIImageJPEGRepresentation((image), 1)!)
-        //        var imageSize: Int = (imgData.length / 1024)
-        //        print("size of image in KB: %f ", imageSize)
-        //        var image1 = self.images[1] as! UIImage
-        //        var imgData1: NSData = NSData(data: UIImageJPEGRepresentation((image1), 1)!)
-        //        var imageSize1: Int = (imgData1.length / 1024)
-        //        print("size of image in KB: %f ", imageSize1)
-        //
-        //        var image2 = self.images[2] as! UIImage
-        //        var imgData2: NSData = NSData(data: UIImageJPEGRepresentation((image2), 1)!)
-        //        var imageSize2: Int = (imgData2.length / 1024)
-        //        print("size of image in KB: %f ", imageSize2)
-        
-        var image = self.images[0] as! UIImage
-        print(image.size.height);
-        
+        collectionView.backgroundColor = .whiteColor()
+        self.fetchPhotos()
     }
     
     // like a runner, calls our fetch photo method upon opening of the app, calls layout setup methods
     
     func fetchPhotos () {
+        imageCounter = 0
+        indexSet = NSMutableIndexSet()
         images = NSMutableArray()
-        totalImageCountNeeded = 25
+        //reset values for fresh page
+        
         self.fetchPhotoAtIndexFromEnd(0)
-        //        let asset = self.images[0]
-        //        let imageSize = CGSize(asset)
-        //        let imageSize = CGSize(width: asset.pixelWidth,
-        //                               height: asset.pixelHeight)
-        //        print(imageSize)
     }
     
     // calls method that fetches photos from photo library
@@ -72,18 +57,24 @@ class SecondViewController: UIViewController, UICollectionViewDataSource {
         
         let requestOptions = PHImageRequestOptions()
         requestOptions.synchronous = true
+        requestOptions.networkAccessAllowed = false
         
-        // request only thumbnails by setting synchronous to true
+        // request only thumbnails by setting synchronous to true, ignore cloud photos
         
         let fetchOptions = PHFetchOptions()
-        fetchOptions.sortDescriptors = [NSSortDescriptor(key:"modificationDate", ascending: true)]
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
         
         // filtering with fetchoptions
         
         if let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithMediaType(PHAssetMediaType.Image, options: fetchOptions) {
             
             if fetchResult.count > 0 {
-                imgManager.requestImageForAsset(fetchResult.objectAtIndex(fetchResult.count - 1 - index) as! PHAsset, targetSize: view.frame.size, contentMode: PHImageContentMode.AspectFill, options: requestOptions, resultHandler: { (image, _) in
+                
+                indexSet.addIndex(imageCounter)
+                imageCounter+=1
+                print(indexSet)
+                
+                imgManager.requestImageForAsset(fetchResult.objectAtIndex(index) as! PHAsset, targetSize: view.frame.size, contentMode: PHImageContentMode.AspectFill, options: requestOptions, resultHandler: { (image, _) in
                     
                     self.images.addObject(image!)
                     
@@ -97,6 +88,7 @@ class SecondViewController: UIViewController, UICollectionViewDataSource {
                     }
                 })
             }
+            imageAssets = fetchResult.objectsAtIndexes(indexSet)
         }
     }
     
@@ -105,14 +97,13 @@ class SecondViewController: UIViewController, UICollectionViewDataSource {
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 25
+        return totalImageCountNeeded
     }
     
     // how many items we want to return
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! ImageCollectionViewCell
-        print(self.images)
         
         // calling a cell reusable performs iteration
         
@@ -125,9 +116,23 @@ class SecondViewController: UIViewController, UICollectionViewDataSource {
         return cell
     }
     
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
     
-    // status bar hidden
+    @IBAction func deleteLast() {
+        
+        PHPhotoLibrary.sharedPhotoLibrary().performChanges({
+            PHAssetChangeRequest.deleteAssets(self.imageAssets as! NSFastEnumeration)
+            },
+           completionHandler: {(success, error)in
+            NSLog("\nDeleted Image -> %@", (success ? "Success":"Error!"))
+            if(success){
+                dispatch_async(dispatch_get_main_queue(), {
+                    print("Trashed")
+                })
+                self.fetchPhotos()
+                self.collectionView.reloadData()
+            }else{
+                print("Error: \(error)")
+            }
+        })
+    }
 }

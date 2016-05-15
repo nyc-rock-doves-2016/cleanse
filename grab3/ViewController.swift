@@ -29,6 +29,24 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         collectionViewLayout = CustomImageFlowLayout()
         collectionView.collectionViewLayout = collectionViewLayout
         collectionView.backgroundColor = .blackColor()
+        
+//        var image = self.images[0] as! UIImage
+//        var imgData: NSData = NSData(data: UIImageJPEGRepresentation((image), 1)!)
+//        var imageSize: Int = (imgData.length / 1024)
+//        print("size of image in KB: %f ", imageSize)
+//        var image1 = self.images[1] as! UIImage
+//        var imgData1: NSData = NSData(data: UIImageJPEGRepresentation((image1), 1)!)
+//        var imageSize1: Int = (imgData1.length / 1024)
+//        print("size of image in KB: %f ", imageSize1)
+//        
+//        var image2 = self.images[2] as! UIImage
+//        var imgData2: NSData = NSData(data: UIImageJPEGRepresentation((image2), 1)!)
+//        var imageSize2: Int = (imgData2.length / 1024)
+//        print("size of image in KB: %f ", imageSize2)
+        
+        var image = self.images[0] as! UIImage
+        print(image.size.height);
+        
     }
     
     // like a runner, calls our fetch photo method upon opening of the app, calls layout setup methods
@@ -37,6 +55,11 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         images = NSMutableArray()
         totalImageCountNeeded = 25
         self.fetchPhotoAtIndexFromEnd(0)
+//        let asset = self.images[0] 
+//        let imageSize = CGSize(asset)
+//        let imageSize = CGSize(width: asset.pixelWidth,
+//                               height: asset.pixelHeight)
+//        print(imageSize)
     }
     
     // calls method that fetches photos from photo library
@@ -53,7 +76,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         // request only thumbnails by setting synchronous to true
         
         let fetchOptions = PHFetchOptions()
-        fetchOptions.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: true)]
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key:"modificationDate", ascending: true)]
         
         // filtering with fetchoptions
         

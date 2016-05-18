@@ -14,8 +14,7 @@ struct imageWithSize {
     var image: UIImage?
     var size = Float(0)
     var asset: PHAsset?
-    var width: PHAsset?
-    var hieght: PHAsset?
+
 }
 
 class SecondViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -72,34 +71,7 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
             
         }
         
-        //
-        //        fetchResult.enumerateObjectsUsingBlock({ object, index, stop in
-        //
-        //            let asset = object
-        //
-        //            if asset.favorite == false {
-        //                self.imgManager.requestImageDataForAsset(asset as! PHAsset, options: requestOptions){
-        //
-        //                    (data:NSData?, string:String?, orientation:UIImageOrientation, object:[NSObject : AnyObject]?) -> Void in
-        //                    let image = UIImage(data: data!)
-        //                    var imageSize = Float(data!.length)
-        //                    imageSize = imageSize/(1024*1024)
-        //                    var imgData = imageWithSize()
-        //                    imgData.image = image
-        //                    imgData.size = imageSize
-        //                    imgData.asset = asset as? PHAsset
-        //
-        //                    if asset.burstIdentifier! != nil {
-        //                        self.images.append(imgData)
-        //                    } else if image!.size.width == 640 && image!.size.height == 1136 {
-        //                        self.images.append(imgData)
-        //                    } else if imgData.size > 1.5 {
-        //                        self.images.append(imgData)
-        //                    }
-        //                }
-        //            }
-        //        })
-        
+
         fetchResult.enumerateObjectsUsingBlock({ object, index, stop in
             
             let asset = object

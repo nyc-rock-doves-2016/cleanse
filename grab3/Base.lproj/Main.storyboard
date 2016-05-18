@@ -17,15 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRK-3P-Tyw">
-                                <rect key="frame" x="0.0" y="549" width="600" height="51"/>
-                                <state key="normal" title="Delete Selected">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="deleteLast" destination="BYZ-38-t0r" eventType="touchUpInside" id="hUk-YJ-TXs"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gaO-r5-Urb">
                                 <rect key="frame" x="0.0" y="60" width="600" height="481"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VkS-B6-T6C">
@@ -68,6 +59,16 @@
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="Wo1-Zc-1CJ"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRK-3P-Tyw" userLabel=" ">
+                                <rect key="frame" x="279" y="558" width="42" height="42"/>
+                                <state key="normal" image="Image">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteAssets" destination="BYZ-38-t0r" eventType="touchUpInside" id="OXu-aV-Yeb"/>
+                                    <action selector="deleteLast" destination="BYZ-38-t0r" eventType="touchUpInside" id="CFE-Hd-4fI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -115,43 +116,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQe-be-M1j">
-                                <rect key="frame" x="204" y="253" width="116" height="30"/>
-                                <state key="normal" title="cleanse genie">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQe-be-M1j">
+                                <rect key="frame" x="248" y="224" width="104" height="99"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <size key="titleShadowOffset" width="4" height="0.0"/>
+                                <state key="normal" image="Wizard Rect 2">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="hxp-kR-Dk6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uxz-4F-56Z">
-                                <rect key="frame" x="210" y="198" width="105" height="30"/>
-                                <state key="normal" title="cleanse by size">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uxz-4F-56Z">
+                                <rect key="frame" x="248" y="106" width="104" height="99"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="104" id="eae-xf-9Uu"/>
+                                    <constraint firstAttribute="height" constant="99" id="gWM-fg-Vaz"/>
+                                </constraints>
+                                <state key="normal" image="Ruler With Rectangle">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="6p7-pH-TCQ"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="Mpp-zR-ry8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJT-fI-xDp">
-                                <rect key="frame" x="237" y="307" width="50" height="30"/>
-                                <state key="normal" title="DETOX">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W9T-28-ULJ">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <barButtonItem id="LGl-FA-lnX"/>
+                                </items>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJT-fI-xDp">
+                                <rect key="frame" x="248" y="351" width="104" height="99"/>
+                                <state key="normal" image="Detox Rectangle">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="deleteAll" destination="ElK-HR-zNt" eventType="touchUpInside" id="LT8-xj-fhE"/>
+                                    <action selector="deleteAll" destination="ElK-HR-zNt" eventType="touchUpInside" id="GwW-Ix-XfZ"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="sQe-be-M1j" firstAttribute="top" secondItem="Uxz-4F-56Z" secondAttribute="bottom" constant="25" id="LsB-U5-SMn"/>
-                            <constraint firstItem="GJT-fI-xDp" firstAttribute="centerX" secondItem="2dt-Z3-OH6" secondAttribute="centerX" id="Olc-HH-oL0"/>
-                            <constraint firstItem="sQe-be-M1j" firstAttribute="centerY" secondItem="2dt-Z3-OH6" secondAttribute="centerY" id="dgx-fJ-w8W"/>
-                            <constraint firstItem="sQe-be-M1j" firstAttribute="centerX" secondItem="2dt-Z3-OH6" secondAttribute="centerX" id="mDu-EG-xqf"/>
-                            <constraint firstItem="GJT-fI-xDp" firstAttribute="top" secondItem="sQe-be-M1j" secondAttribute="bottom" constant="39" id="pNs-jr-Djb"/>
-                            <constraint firstItem="Uxz-4F-56Z" firstAttribute="centerX" secondItem="2dt-Z3-OH6" secondAttribute="centerX" id="xAd-7X-y08"/>
+                            <constraint firstItem="sQe-be-M1j" firstAttribute="top" secondItem="Uxz-4F-56Z" secondAttribute="bottom" constant="19" id="5MX-sF-F3r"/>
+                            <constraint firstItem="Uxz-4F-56Z" firstAttribute="leading" secondItem="GJT-fI-xDp" secondAttribute="leading" id="DbL-Lf-PVI"/>
+                            <constraint firstItem="Uxz-4F-56Z" firstAttribute="top" secondItem="tSc-GW-p21" secondAttribute="bottom" constant="8" symbolic="YES" id="Ere-Po-q2o"/>
+                            <constraint firstItem="Uxz-4F-56Z" firstAttribute="leading" secondItem="2dt-Z3-OH6" secondAttribute="leading" constant="249" id="FCO-Z4-yi9"/>
+                            <constraint firstItem="sQe-be-M1j" firstAttribute="height" secondItem="Uxz-4F-56Z" secondAttribute="height" id="ImP-96-0Dh"/>
+                            <constraint firstItem="GJT-fI-xDp" firstAttribute="centerX" secondItem="2dt-Z3-OH6" secondAttribute="centerX" id="MjS-ox-is1"/>
+                            <constraint firstItem="sQe-be-M1j" firstAttribute="top" secondItem="Uxz-4F-56Z" secondAttribute="bottom" constant="8" symbolic="YES" id="N4B-id-xZB"/>
+                            <constraint firstItem="sQe-be-M1j" firstAttribute="centerX" secondItem="W9T-28-ULJ" secondAttribute="centerX" id="Q4z-km-owm"/>
+                            <constraint firstItem="W9T-28-ULJ" firstAttribute="bottom" secondItem="iDF-Ix-TUk" secondAttribute="top" id="TqE-2d-ESz"/>
+                            <constraint firstItem="GJT-fI-xDp" firstAttribute="centerX" secondItem="Uxz-4F-56Z" secondAttribute="centerX" id="Wug-Ka-Khg"/>
+                            <constraint firstItem="sQe-be-M1j" firstAttribute="width" secondItem="Uxz-4F-56Z" secondAttribute="width" id="cPs-wb-YNq"/>
+                            <constraint firstItem="sQe-be-M1j" firstAttribute="width" secondItem="Uxz-4F-56Z" secondAttribute="width" id="eyZ-I5-Q6y"/>
+                            <constraint firstItem="GJT-fI-xDp" firstAttribute="width" secondItem="Uxz-4F-56Z" secondAttribute="width" id="fDc-zm-jLH"/>
+                            <constraint firstItem="GJT-fI-xDp" firstAttribute="height" secondItem="Uxz-4F-56Z" secondAttribute="height" id="hPi-Gu-Q5c"/>
+                            <constraint firstItem="Uxz-4F-56Z" firstAttribute="top" secondItem="tSc-GW-p21" secondAttribute="bottom" constant="42" id="iM8-7c-IZb"/>
+                            <constraint firstItem="W9T-28-ULJ" firstAttribute="leading" secondItem="2dt-Z3-OH6" secondAttribute="leading" id="lxt-EJ-Quy"/>
+                            <constraint firstItem="GJT-fI-xDp" firstAttribute="height" secondItem="Uxz-4F-56Z" secondAttribute="height" id="mQE-tP-Wpl"/>
+                            <constraint firstItem="GJT-fI-xDp" firstAttribute="top" secondItem="sQe-be-M1j" secondAttribute="bottom" constant="28" id="nzw-6c-D3e"/>
+                            <constraint firstItem="Uxz-4F-56Z" firstAttribute="centerX" secondItem="2dt-Z3-OH6" secondAttribute="centerX" id="pl0-HD-zC5"/>
+                            <constraint firstItem="GJT-fI-xDp" firstAttribute="width" secondItem="Uxz-4F-56Z" secondAttribute="width" id="rH0-df-VEu"/>
+                            <constraint firstItem="sQe-be-M1j" firstAttribute="centerX" secondItem="Uxz-4F-56Z" secondAttribute="centerX" id="uOF-IN-RCC"/>
+                            <constraint firstItem="sQe-be-M1j" firstAttribute="height" secondItem="Uxz-4F-56Z" secondAttribute="height" id="uxe-UW-bNe"/>
+                            <constraint firstItem="GJT-fI-xDp" firstAttribute="top" secondItem="sQe-be-M1j" secondAttribute="bottom" constant="8" symbolic="YES" id="xgD-36-pF5"/>
+                            <constraint firstItem="sQe-be-M1j" firstAttribute="centerX" secondItem="2dt-Z3-OH6" secondAttribute="centerX" id="zKI-mN-tgY"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Ere-Po-q2o"/>
+                                <exclude reference="FCO-Z4-yi9"/>
+                                <exclude reference="N4B-id-xZB"/>
+                                <exclude reference="uOF-IN-RCC"/>
+                                <exclude reference="xgD-36-pF5"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="cleanse" id="JAb-8U-CQF"/>
                 </viewController>
@@ -167,6 +210,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z5S-ea-Xwe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="GeomaThinDemo" family="Geoma Thin Demo" pointSize="0.0"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -178,6 +224,12 @@
             <point key="canvasLocation" x="-743" y="-116"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Detox Rectangle" width="103" height="103"/>
+        <image name="Image" width="26" height="38"/>
+        <image name="Ruler With Rectangle" width="103" height="103"/>
+        <image name="Wizard Rect 2" width="112" height="112"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hxp-kR-Dk6"/>
     </inferredMetricsTieBreakers>

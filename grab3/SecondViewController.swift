@@ -9,12 +9,10 @@
 import UIKit
 import Photos
 
-
 struct imageWithSize {
     var image: UIImage?
     var size = Float(0)
     var asset: PHAsset?
-
 }
 
 class SecondViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {

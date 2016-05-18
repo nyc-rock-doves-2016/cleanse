@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1Qf-oE-Ncb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qK9-Vm-IwZ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -27,7 +27,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="zbw-OY-iRQ" customClass="ImageCollectionViewCell" customModule="Cleanse" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="198" height="198"/>
+                                        <rect key="frame" x="0.0" y="64" width="198" height="198"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <userGuides>
                                             <userLayoutGuide location="99" affinity="minY"/>
@@ -65,8 +65,7 @@
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="deleteAssets" destination="BYZ-38-t0r" eventType="touchUpInside" id="OXu-aV-Yeb"/>
-                                    <action selector="deleteLast" destination="BYZ-38-t0r" eventType="touchUpInside" id="CFE-Hd-4fI"/>
+                                    <action selector="deleteAssets" destination="BYZ-38-t0r" eventType="touchUpInside" id="gYU-jU-3CR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -98,11 +97,13 @@
                     <connections>
                         <outlet property="collectionView" destination="gaO-r5-Urb" id="dju-hU-lEc"/>
                         <outletCollection property="collectionView" destination="gaO-r5-Urb" id="Uvh-G8-nb0"/>
+                        <segue destination="2CG-da-vUZ" kind="unwind" identifier="unwindToMain" unwindAction="unwindToHere:" id="JcR-4x-8dq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="2CG-da-vUZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="830" y="-125"/>
+            <point key="canvasLocation" x="3266" y="-125"/>
         </scene>
         <!--cleanse-->
         <scene sceneID="JRA-we-e2Y">
@@ -120,7 +121,7 @@
                                 <rect key="frame" x="248" y="224" width="104" height="99"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <size key="titleShadowOffset" width="4" height="0.0"/>
-                                <state key="normal" image="Wizard Rect 2">
+                                <state key="normal" image="Water Drop Button">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -133,7 +134,7 @@
                                     <constraint firstAttribute="width" constant="104" id="eae-xf-9Uu"/>
                                     <constraint firstAttribute="height" constant="99" id="gWM-fg-Vaz"/>
                                 </constraints>
-                                <state key="normal" image="Ruler With Rectangle">
+                                <state key="normal" image="ruler final">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -147,11 +148,11 @@
                                     <barButtonItem id="LGl-FA-lnX"/>
                                 </items>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJT-fI-xDp">
                                 <rect key="frame" x="248" y="351" width="104" height="99"/>
-                                <state key="normal" image="Detox Rectangle">
+                                <state key="normal" image="Final Detox">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -200,37 +201,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bjy-yv-M2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="69" y="-116"/>
+            <point key="canvasLocation" x="2505" y="-116"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="e4r-5z-oQT">
+        <scene sceneID="8uq-V0-dId">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Qf-oE-Ncb" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qK9-Vm-IwZ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z5S-ea-Xwe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VWV-j5-HXY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="GeomaThinDemo" family="Geoma Thin Demo" pointSize="0.0"/>
-                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ElK-HR-zNt" kind="relationship" relationship="rootViewController" id="VhN-zT-3lR"/>
+                        <segue destination="ElK-HR-zNt" kind="relationship" relationship="rootViewController" id="v60-O9-VDN"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uix-OO-VBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rqs-Su-A3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-743" y="-116"/>
+            <point key="canvasLocation" x="1693" y="-116"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Detox Rectangle" width="103" height="103"/>
+        <image name="Final Detox" width="130" height="128"/>
         <image name="Image" width="26" height="38"/>
-        <image name="Ruler With Rectangle" width="103" height="103"/>
-        <image name="Wizard Rect 2" width="112" height="112"/>
+        <image name="Water Drop Button" width="130" height="128"/>
+        <image name="ruler final" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hxp-kR-Dk6"/>
+        <segue reference="Mpp-zR-ry8"/>
     </inferredMetricsTieBreakers>
 </document>

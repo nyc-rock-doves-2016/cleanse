@@ -14,6 +14,8 @@ struct imageWithSize {
     var image: UIImage?
     var size = Float(0)
     var asset: PHAsset?
+    var width: PHAsset?
+    var hieght: PHAsset?
 }
 
 class SecondViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -28,7 +30,7 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
     var imageAssets = [AnyObject]()
     var viewIndexSet = NSMutableIndexSet()
     var deleteSet = NSMutableIndexSet()
-    var totalImageCountNeeded = 15
+    var totalImageCountNeeded = 12
     var imgManager = PHImageManager.defaultManager()
     
     override func viewDidLoad() {
@@ -54,9 +56,49 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         requestOptions.networkAccessAllowed = false
         
         let fetchOptions = PHFetchOptions()
+        fetchOptions.includeAllBurstAssets = true
         
         let fetchResult = PHAsset.fetchAssetsWithMediaType(PHAssetMediaType.Image, options: fetchOptions)
-        print(fetchResult)
+        
+        if fetchResult.count == 0 {
+            
+            let alertController = UIAlertController(title: "Wow", message:
+                "You don't have any photos! How does it feel to be so clean?", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: { (UIAlertAction) -> Void in
+                self.navigationController?.popToRootViewControllerAnimated(true)
+            }))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+        }
+        
+        //
+        //        fetchResult.enumerateObjectsUsingBlock({ object, index, stop in
+        //
+        //            let asset = object
+        //
+        //            if asset.favorite == false {
+        //                self.imgManager.requestImageDataForAsset(asset as! PHAsset, options: requestOptions){
+        //
+        //                    (data:NSData?, string:String?, orientation:UIImageOrientation, object:[NSObject : AnyObject]?) -> Void in
+        //                    let image = UIImage(data: data!)
+        //                    var imageSize = Float(data!.length)
+        //                    imageSize = imageSize/(1024*1024)
+        //                    var imgData = imageWithSize()
+        //                    imgData.image = image
+        //                    imgData.size = imageSize
+        //                    imgData.asset = asset as? PHAsset
+        //
+        //                    if asset.burstIdentifier! != nil {
+        //                        self.images.append(imgData)
+        //                    } else if image!.size.width == 640 && image!.size.height == 1136 {
+        //                        self.images.append(imgData)
+        //                    } else if imgData.size > 1.5 {
+        //                        self.images.append(imgData)
+        //                    }
+        //                }
+        //            }
+        //        })
         
         fetchResult.enumerateObjectsUsingBlock({ object, index, stop in
             
@@ -78,6 +120,13 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if self.images.count < totalImageCountNeeded && self.images.count > 0 {
+            self.deleteSet = NSMutableIndexSet()
+            self.viewIndexSet = NSMutableIndexSet(indexesInRange: NSRange(0...self.images.count - 1))
+        } else {
+            self.deleteSet = NSMutableIndexSet()
+            self.viewIndexSet = NSMutableIndexSet(indexesInRange: NSRange(0...11))
+        }
         return totalImageCountNeeded
     }
     
@@ -86,15 +135,7 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         collectionView.allowsMultipleSelection = true
         
-        
-        if self.images.count < totalImageCountNeeded {
-            let x = self.images.count - 1
-            self.deleteSet = NSMutableIndexSet(indexesInRange: NSRange(0...x))
-            self.viewIndexSet = NSMutableIndexSet(indexesInRange: NSRange(0...x))
-        } else {
-            self.deleteSet = NSMutableIndexSet(indexesInRange: NSRange(0...14))
-            self.viewIndexSet = NSMutableIndexSet(indexesInRange: NSRange(0...14))
-        }
+        cell.selected = false
         
         if cell.selected {
             cell.layer.opacity = 0.2
@@ -117,7 +158,7 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! ImageCollectionViewCell
         cell.layer.opacity = 0.2
         cell.layer.cornerRadius = 10
-        self.deleteSet.removeIndex(indexPath.row)
+        self.deleteSet.addIndex(indexPath.row)
     }
     
     
@@ -125,7 +166,7 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! ImageCollectionViewCell
         cell.layer.opacity = 1.0
         cell.layer.cornerRadius = 0
-        self.deleteSet.addIndex(indexPath.row)
+        self.deleteSet.removeIndex(indexPath.row)
     }
     
     @IBAction func deleteAssets() {

@@ -11,26 +11,30 @@ import Photos
 
 class ViewController: UIViewController {
     
+    @IBAction func unwindToHere(segue: UIStoryboardSegue) { }
+    
     override func viewDidLoad() {
         
         self.navigationBar()
         
     }
     
+//    
     func navigationBar() {
-        
+//
         let navigationTitleFont = UIFont(name: "Geoma Thin Demo", size: 40)!
         let nav =  self.navigationController?.navigationBar
-        
+
         nav!.titleTextAttributes = [NSFontAttributeName: navigationTitleFont]
-        nav!.barStyle = UIBarStyle.Black // I then set the color using:
-        nav!.tintColor = UIColor.whiteColor() // for titles, buttons, etc.
-        nav!.titleTextAttributes = [NSFontAttributeName: navigationTitleFont]
-        nav!.frame = CGRectMake(30, 0, 200, 30);
+//        nav!.barStyle = UIBarStyle.Black // I then set the color using:
+//        nav!.tintColor = UIColor.blackColor() // for titles, buttons, etc.
+//        nav!.titleTextAttributes = [NSFontAttributeName: navigationTitleFont]
+//        nav!.frame = CGRectMake(30, 0, 200, 30);
         nav!.setTitleVerticalPositionAdjustment(CGFloat(7), forBarMetrics: UIBarMetrics.Default)
-        
-        //        self.navigationController?.navigationBar.barTintColor   = UIColor(red: 204/255, green: 47/255, blue: 40/255, alpha: 1.0) // a lovely red
-    
+//
+//        self.navigationController?.navigationBar.barTintColor   = UIColor(red:0.60, green:1.00, blue:0.93, alpha:1.0)
+//                UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.blackColor()]
+//    
     }
     
     
@@ -43,8 +47,8 @@ class ViewController: UIViewController {
         if let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithMediaType(PHAssetMediaType.Image, options: nil) {
             
             if fetchResult.count == 0 {
-                let alertController = UIAlertController(title: "Poop", message:
-                    "You don't have any photos!", preferredStyle: UIAlertControllerStyle.Alert)
+                let alertController = UIAlertController(title: "Wow!", message:
+                    "You don't have any photos! How does it feel to be so clean?", preferredStyle: UIAlertControllerStyle.Alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
                 
                 self.presentViewController(alertController, animated: true, completion: nil)

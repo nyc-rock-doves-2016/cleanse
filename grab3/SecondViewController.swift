@@ -33,15 +33,25 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.fetchAndGetSize()
+        self.images = sortBySize()
         self.automaticallyAdjustsScrollViewInsets = false
         collectionViewLayout = CustomImageFlowLayout()
         collectionView.collectionViewLayout = collectionViewLayout
         collectionView.backgroundColor = .whiteColor()
         collectionView.delegate = self;
-        self.fetchAndGetSize()
-        self.images = sortBySize()
+        
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipes))
+        rightSwipe.direction = .Right
+        view.addGestureRecognizer(rightSwipe)
     }
     
+    func handleSwipes(sender: UISwipeGestureRecognizer){
+        if sender.direction == .Right {
+            self.performSegueWithIdentifier("unwindToMain", sender: self)
+        }
+    }
+
     func sortBySize() -> [imageWithSize] {
         return self.images.sort({ $0.size > $1.size })
     }
@@ -58,6 +68,18 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         let fetchResult = PHAsset.fetchAssetsWithMediaType(PHAssetMediaType.Image, options: fetchOptions)
         print(fetchResult)
         
+        if fetchResult.count == 0 {
+            
+            let alertController = UIAlertController(title: "Wow", message:
+                "You don't have any photos! How does it feel to be so clean?", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: { (UIAlertAction) -> Void in
+                self.navigationController?.popToRootViewControllerAnimated(true)
+                }))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+        }
+        
         fetchResult.enumerateObjectsUsingBlock({ object, index, stop in
             
             let asset = object
@@ -73,10 +95,11 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
                 imgData.size = imageSize
                 imgData.asset = asset as? PHAsset
                 self.images.append(imgData)
+//                print(imgData.asset)
             }
         })
     }
-    
+     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return totalImageCountNeeded
     }
@@ -87,7 +110,7 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         collectionView.allowsMultipleSelection = true
         
         
-        if self.images.count < totalImageCountNeeded {
+        if self.images.count < totalImageCountNeeded  && self.images.count > 0 {
             let x = self.images.count - 1
             self.deleteSet = NSMutableIndexSet(indexesInRange: NSRange(0...x))
             self.viewIndexSet = NSMutableIndexSet(indexesInRange: NSRange(0...x))

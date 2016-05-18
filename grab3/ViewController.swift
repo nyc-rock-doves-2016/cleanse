@@ -11,22 +11,26 @@ import Photos
 
 class ViewController: UIViewController {
     
-       override func viewDidLoad() {
+    override func viewDidLoad() {
         
-        self.navigationController?.navigationBar.barStyle       = UIBarStyle.Black // I then set the color using:
+        self.navigationBar()
         
-//        self.navigationController?.navigationBar.barTintColor   = UIColor(red: 204/255, green: 47/255, blue: 40/255, alpha: 1.0) // a lovely red
-        
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor() // for titles, buttons, etc.
+    }
+    
+    func navigationBar() {
         
         let navigationTitleFont = UIFont(name: "Geoma Thin Demo", size: 40)!
+        let nav =  self.navigationController?.navigationBar
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: navigationTitleFont]
+        nav!.titleTextAttributes = [NSFontAttributeName: navigationTitleFont]
+        nav!.barStyle = UIBarStyle.Black // I then set the color using:
+        nav!.tintColor = UIColor.whiteColor() // for titles, buttons, etc.
+        nav!.titleTextAttributes = [NSFontAttributeName: navigationTitleFont]
+        nav!.frame = CGRectMake(30, 0, 200, 30);
+        nav!.setTitleVerticalPositionAdjustment(CGFloat(7), forBarMetrics: UIBarMetrics.Default)
         
-        self.navigationController?.navigationBar.frame = CGRectMake(30, 0, 200, 30);
-
-        
-        
+        //        self.navigationController?.navigationBar.barTintColor   = UIColor(red: 204/255, green: 47/255, blue: 40/255, alpha: 1.0) // a lovely red
+    
     }
     
     
@@ -37,6 +41,14 @@ class ViewController: UIViewController {
     }
     @IBAction func deleteAll() {
         if let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithMediaType(PHAssetMediaType.Image, options: nil) {
+            
+            if fetchResult.count == 0 {
+                let alertController = UIAlertController(title: "Poop", message:
+                    "You don't have any photos!", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
             
             PHPhotoLibrary.sharedPhotoLibrary().performChanges({
                 PHAssetChangeRequest.deleteAssets(fetchResult)

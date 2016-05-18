@@ -65,7 +65,7 @@
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="deleteAssets" destination="BYZ-38-t0r" eventType="touchUpInside" id="OXu-aV-Yeb"/>
+                                    <action selector="deleteAssets" destination="BYZ-38-t0r" eventType="touchUpInside" id="gYU-jU-3CR"/>
                                 </connections>
                             </button>
                         </subviews>

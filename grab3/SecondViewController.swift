@@ -72,7 +72,7 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
             
             let alertController = UIAlertController(title: "Wow", message:
                 "You don't have any photos! How does it feel to be so clean?", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: { (UIAlertAction) -> Void in
+            alertController.addAction(UIAlertAction(title: "Go back", style: UIAlertActionStyle.Default,handler: { (UIAlertAction) -> Void in
                 self.navigationController?.popToRootViewControllerAnimated(true)
             }))
             
@@ -168,8 +168,8 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
                     if self.images.count > 0 {
                         self.collectionView.reloadData()
                     } else {
-                        let alertController = UIAlertController(title: "Yas!", message: "Your cleanse is complete.  Now go walk children in nature.", preferredStyle: .Alert)
-                        let actionOk = UIAlertAction(title: "neato", style: .Default, handler: { (UIAlertAction) -> Void in
+                        let alertController = UIAlertController(title: "Congrats!", message: "Your cleanse is complete.", preferredStyle: .Alert)
+                        let actionOk = UIAlertAction(title: "Dismiss", style: .Default, handler: { (UIAlertAction) -> Void in
                             self.navigationController?.popToRootViewControllerAnimated(true)
                         })
                         alertController.addAction(actionOk)

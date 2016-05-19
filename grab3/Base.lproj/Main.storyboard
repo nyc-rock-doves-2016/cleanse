@@ -29,8 +29,8 @@
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="bm4-2g-49k"/>
                                                 <exclude reference="6an-oD-VKD"/>
+                                                <exclude reference="bm4-2g-49k"/>
                                             </mask>
                                         </variation>
                                     </imageView>
@@ -76,7 +76,7 @@
             </objects>
             <point key="canvasLocation" x="3190" y="-938"/>
         </scene>
-        <!--Second View Controller-->
+        <!--size cleanse-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SecondViewController" customModule="Cleanse" sceneMemberID="viewController">
@@ -164,6 +164,7 @@
                         </variation>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="size cleanse" id="u65-u6-YBy"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="gaO-r5-Urb" id="dju-hU-lEc"/>
@@ -316,7 +317,7 @@
             </objects>
             <point key="canvasLocation" x="1429" y="-164"/>
         </scene>
-        <!--Third View Controller-->
+        <!--magic cleanse-->
         <scene sceneID="nFL-13-TE6">
             <objects>
                 <viewController id="8Og-5r-rhG" customClass="ThirdViewController" customModule="Cleanse" sceneMemberID="viewController">
@@ -404,6 +405,7 @@
                         </variation>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="magic cleanse" id="8Xp-Ef-pNp"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="iG7-Qw-IJh" id="Pry-IR-U6x"/>

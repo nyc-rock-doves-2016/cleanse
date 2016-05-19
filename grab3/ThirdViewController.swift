@@ -22,8 +22,6 @@ class ThirdViewController: UIViewController, UICollectionViewDataSource, UIColle
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityInd: UIActivityIndicatorView!
     
-    let navigationTitleFont = UIFont(name: "Geoma Thin Demo", size: 40)!
-    
     var collectionViewLayout: CustomImageFlowLayout!
     var images = [imageWithSize]()
     var imageAssets = [AnyObject]()
@@ -58,57 +56,52 @@ class ThirdViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     
     func fetchAndGetSize() {
-        
         let requestOptions = PHImageRequestOptions()
         requestOptions.synchronous = true
         requestOptions.networkAccessAllowed = false
-        
         let fetchOptions = PHFetchOptions()
         fetchOptions.includeAllBurstAssets = true
-        
         let fetchResult = PHAsset.fetchAssetsWithMediaType(PHAssetMediaType.Image, options: fetchOptions)
-        
         if fetchResult.count == 0 {
-            
             let alertController = UIAlertController(title: "Wow", message:
                 "You don't have any photos! How does it feel to be so clean?", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: { (UIAlertAction) -> Void in
                 self.navigationController?.popToRootViewControllerAnimated(true)
             }))
-            
             self.presentViewController(alertController, animated: true, completion: nil)
-            
         }
-        
-        
-                fetchResult.enumerateObjectsUsingBlock({ object, index, stop in
-        
-                    let asset = object
-        
-                    if asset.favorite == false {
-                        self.imgManager.requestImageDataForAsset(asset as! PHAsset, options: requestOptions){
-        
-                            (data:NSData?, string:String?, orientation:UIImageOrientation, object:[NSObject : AnyObject]?) -> Void in
-                            let image = UIImage(data: data!)
-                            var imageSize = Float(data!.length)
-                            imageSize = imageSize/(1024*1024)
-                            var imgData = imageWithSize()
-                            imgData.image = image
-                            imgData.size = imageSize
-                            imgData.asset = asset as? PHAsset
-        
-                            if asset.burstIdentifier! != nil {
-                                self.images.append(imgData)
-                            } else if image!.size.width == 640 && image!.size.height == 1136 {
-                                self.images.append(imgData)
-                            } else if imgData.size > 1.5 {
-                                self.images.append(imgData)
-                            }
-                        }
+        fetchResult.enumerateObjectsUsingBlock({ object, index, stop in
+            let asset = object
+            if asset.favorite == false {
+                self.imgManager.requestImageDataForAsset(asset as! PHAsset, options: requestOptions){
+                    (data:NSData?, string:String?, orientation:UIImageOrientation, object:[NSObject : AnyObject]?) -> Void in
+                    let image = UIImage(data: data!)
+                    var imageSize = Float(data!.length)
+                    imageSize = imageSize/(1024*1024)
+                    var imgData = imageWithSize()
+                    imgData.image = image
+                    imgData.size = imageSize
+                    imgData.asset = asset as? PHAsset
+                    if asset.burstIdentifier! != nil {
+                        self.images.append(imgData)
+                    } else if image!.size.width == 640 && image!.size.height == 1136 {
+                        self.images.append(imgData)
+                    } else if imgData.size > 1.5 {
+                        self.images.append(imgData)
                     }
-                })
+                }
+            }
+        })
         
-     }
+        if self.images.count == 0 {
+            let alertController = UIAlertController(title: "Hmmm", message: "Our filter did not find any photos to cleanse.", preferredStyle: .Alert)
+            let actionOk = UIAlertAction(title: "Go back", style: .Default, handler: { (UIAlertAction) -> Void in
+                self.navigationController?.popToRootViewControllerAnimated(true)
+            })
+            alertController.addAction(actionOk)
+            self.presentViewController(alertController, animated:true, completion:nil)
+        }
+    }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if self.images.count < totalImageCountNeeded && self.images.count > 0 {
@@ -178,8 +171,8 @@ class ThirdViewController: UIViewController, UICollectionViewDataSource, UIColle
                     if self.images.count > 0 {
                         self.collectionView.reloadData()
                     } else {
-                        let alertController = UIAlertController(title: "Yas!", message: "Your cleanse is complete.  Now go walk children in nature.", preferredStyle: .Alert)
-                        let actionOk = UIAlertAction(title: "neato", style: .Default, handler: { (UIAlertAction) -> Void in
+                        let alertController = UIAlertController(title: "Congrats!", message: "Your cleanse is complete.", preferredStyle: .Alert)
+                        let actionOk = UIAlertAction(title: "Dismiss", style: .Default, handler: { (UIAlertAction) -> Void in
                             self.navigationController?.popToRootViewControllerAnimated(true)
                         })
                         alertController.addAction(actionOk)

@@ -15,9 +15,9 @@
 		A117C1EE1CE67F2D00DF94B4 /* CustomImageFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A117C1ED1CE67F2D00DF94B4 /* CustomImageFlowLayout.swift */; };
 		A117C1F01CE67F4400DF94B4 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A117C1EF1CE67F4400DF94B4 /* ImageCollectionViewCell.swift */; };
 		A117C1F21CE7F65500DF94B4 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A117C1F11CE7F65500DF94B4 /* SecondViewController.swift */; };
+		A1B8EA261CEE576C003626FC /* Geoma Thin Demo.otf in Resources */ = {isa = PBXBuildFile; fileRef = A1B8EA251CEE576C003626FC /* Geoma Thin Demo.otf */; };
 		A1EAD2B21CED07F200DF8BCD /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2B11CED07F200DF8BCD /* ThirdViewController.swift */; };
 		A1EAD2B41CED17A900DF8BCD /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2B31CED17A900DF8BCD /* InfoController.swift */; };
-		C56A9E2A1CEE1F17006CF5A5 /* Geoma Thin Demo.otf in Resources */ = {isa = PBXBuildFile; fileRef = C56A9E291CEE1F17006CF5A5 /* Geoma Thin Demo.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +31,9 @@
 		A117C1ED1CE67F2D00DF94B4 /* CustomImageFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageFlowLayout.swift; sourceTree = "<group>"; };
 		A117C1EF1CE67F4400DF94B4 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		A117C1F11CE7F65500DF94B4 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		A1B8EA251CEE576C003626FC /* Geoma Thin Demo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Geoma Thin Demo.otf"; path = "../../../Downloads/geoma-thin-demo/Geoma Thin Demo.otf"; sourceTree = "<group>"; };
 		A1EAD2B11CED07F200DF8BCD /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		A1EAD2B31CED17A900DF8BCD /* InfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
-		C56A9E291CEE1F17006CF5A5 /* Geoma Thin Demo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Geoma Thin Demo.otf"; path = "../../../../Downloads/Geoma Thin Demo.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +70,7 @@
 				A117C1DD1CE6590A00DF94B4 /* ViewController.swift */,
 				A1EAD2B11CED07F200DF8BCD /* ThirdViewController.swift */,
 				A117C1EF1CE67F4400DF94B4 /* ImageCollectionViewCell.swift */,
-				C56A9E291CEE1F17006CF5A5 /* Geoma Thin Demo.otf */,
+				A1B8EA251CEE576C003626FC /* Geoma Thin Demo.otf */,
 				A117C1ED1CE67F2D00DF94B4 /* CustomImageFlowLayout.swift */,
 				A117C1DF1CE6590A00DF94B4 /* Main.storyboard */,
 				A1EAD2B31CED17A900DF8BCD /* InfoController.swift */,
@@ -144,7 +144,7 @@
 				A117C1E61CE6590A00DF94B4 /* LaunchScreen.storyboard in Resources */,
 				A117C1E31CE6590A00DF94B4 /* Assets.xcassets in Resources */,
 				A117C1E11CE6590A00DF94B4 /* Main.storyboard in Resources */,
-				C56A9E2A1CEE1F17006CF5A5 /* Geoma Thin Demo.otf in Resources */,
+				A1B8EA261CEE576C003626FC /* Geoma Thin Demo.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

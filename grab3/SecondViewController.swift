@@ -128,9 +128,8 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
         if indexPath.row < self.images.count {
             cell.imageView.image = self.images[indexPath.row].image! as UIImage
-        } else {
-            cell.hidden = true
         }
+        
         return cell
     }
     
@@ -158,30 +157,30 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
         
         PHPhotoLibrary.sharedPhotoLibrary().performChanges({PHAssetChangeRequest.deleteAssets(deleteImages as NSFastEnumeration)},
-                                                           completionHandler: {(success, error) in
-                                                            if(success){
-                                                                
-                                                                for i in self.viewIndexSet.reverse() {
-                                                                    self.images.removeAtIndex(i)
-                                                                }
-                                                                
-                                                                dispatch_async(dispatch_get_main_queue(), {
-                                                                    if self.images.count > 0 {
-                                                                        self.collectionView.reloadData()
-                                                                    } else {
-                                                                        let alertController = UIAlertController(title: "Yas!", message: "Your cleanse is complete.  Now go walk children in nature.", preferredStyle: .Alert)
-                                                                        let actionOk = UIAlertAction(title: "neato", style: .Default, handler: { (UIAlertAction) -> Void in
-                                                                            self.navigationController?.popToRootViewControllerAnimated(true)
-                                                                        })
-                                                                        alertController.addAction(actionOk)
-                                                                        self.presentViewController(alertController, animated:true, completion:nil)
-                                                                    }
-                                                                })
-                                                            } else{
-                                                                dispatch_async(dispatch_get_main_queue(), {
-                                                                    self.collectionView.reloadData()
-                                                                })
-                                                            }
+           completionHandler: {(success, error) in
+            if(success){
+                
+                for i in self.viewIndexSet.reverse() {
+                    self.images.removeAtIndex(i)
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    if self.images.count > 0 {
+                        self.collectionView.reloadData()
+                    } else {
+                        let alertController = UIAlertController(title: "Yas!", message: "Your cleanse is complete.  Now go walk children in nature.", preferredStyle: .Alert)
+                        let actionOk = UIAlertAction(title: "neato", style: .Default, handler: { (UIAlertAction) -> Void in
+                            self.navigationController?.popToRootViewControllerAnimated(true)
+                        })
+                        alertController.addAction(actionOk)
+                        self.presentViewController(alertController, animated:true, completion:nil)
+                    }
+                })
+            } else {
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.collectionView.reloadData()
+                })
+            }
         })
     }
 }

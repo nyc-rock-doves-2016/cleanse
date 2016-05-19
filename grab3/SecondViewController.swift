@@ -39,6 +39,15 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         collectionView.delegate = self;
         self.fetchAndGetSize()
         self.images = sortBySize()
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipes))
+        rightSwipe.direction = .Right
+        view.addGestureRecognizer(rightSwipe)
+    }
+    
+    func handleSwipes(sender: UISwipeGestureRecognizer){
+        if sender.direction == .Right {
+            self.performSegueWithIdentifier("unwindToMain", sender: self)
+        }
     }
     
     func sortBySize() -> [imageWithSize] {
@@ -56,6 +65,8 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         fetchOptions.includeAllBurstAssets = true
         
         let fetchResult = PHAsset.fetchAssetsWithMediaType(PHAssetMediaType.Image, options: fetchOptions)
+        
+        print(fetchResult.count)
         
         if fetchResult.count == 0 {
             

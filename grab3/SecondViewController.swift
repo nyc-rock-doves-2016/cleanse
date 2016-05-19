@@ -57,6 +57,8 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         let fetchResult = PHAsset.fetchAssetsWithMediaType(PHAssetMediaType.Image, options: fetchOptions)
         
+        print(fetchResult.count)
+        
         if fetchResult.count == 0 {
             
             let alertController = UIAlertController(title: "Wow", message:

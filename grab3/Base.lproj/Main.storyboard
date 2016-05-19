@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,19 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" image="Info Page" translatesAutoresizingMaskIntoConstraints="NO" id="VUV-65-9uT">
-                                <rect key="frame" x="96" y="28" width="408" height="500"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="408" id="z2s-3I-3pS"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="z2s-3I-3pS"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obM-B5-e9D">
-                                <rect key="frame" x="459" y="28" width="45" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obM-B5-e9D">
+                                <rect key="frame" x="419" y="62" width="45" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="nnR-Sk-ELy"/>
                                 </constraints>
@@ -42,21 +32,36 @@
                                     <action selector="buttonClicked:" destination="JEp-WG-2nj" eventType="touchUpInside" id="mV5-HE-Oii"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="Info Page" translatesAutoresizingMaskIntoConstraints="NO" id="Gy2-Yw-zQX">
+                                <rect key="frame" x="158" y="62" width="306" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Ihh-D3-iwK"/>
+                                    <constraint firstAttribute="width" secondItem="Gy2-Yw-zQX" secondAttribute="height" multiplier="1:1" id="Q4r-ih-riH"/>
+                                    <constraint firstAttribute="width" secondItem="Gy2-Yw-zQX" secondAttribute="height" multiplier="3:4" id="bNE-VD-mRI"/>
+                                    <constraint firstAttribute="height" constant="400" id="psQ-Gk-MHn"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Q4r-ih-riH"/>
+                                        <exclude reference="bNE-VD-mRI"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="obM-B5-e9D" firstAttribute="top" secondItem="VUV-65-9uT" secondAttribute="top" id="BR4-6z-wr7"/>
-                            <constraint firstItem="fFz-u3-5EW" firstAttribute="top" secondItem="obM-B5-e9D" secondAttribute="bottom" constant="542" id="DJc-ij-rlD"/>
-                            <constraint firstItem="obM-B5-e9D" firstAttribute="top" secondItem="ayC-K3-yMB" secondAttribute="bottom" constant="8" symbolic="YES" id="QfE-A6-45V"/>
-                            <constraint firstItem="obM-B5-e9D" firstAttribute="trailing" secondItem="VUV-65-9uT" secondAttribute="trailing" id="YhS-2v-qTM"/>
-                            <constraint firstItem="VUV-65-9uT" firstAttribute="centerX" secondItem="C1N-06-KHg" secondAttribute="centerX" id="hkj-8g-0Pe"/>
-                            <constraint firstItem="VUV-65-9uT" firstAttribute="centerX" secondItem="C1N-06-KHg" secondAttribute="centerX" id="jwe-Jd-qgP"/>
-                            <constraint firstItem="VUV-65-9uT" firstAttribute="leading" secondItem="C1N-06-KHg" secondAttribute="leadingMargin" constant="25" id="kKD-Tb-5Hm"/>
+                            <constraint firstItem="Gy2-Yw-zQX" firstAttribute="top" secondItem="ayC-K3-yMB" secondAttribute="bottom" constant="42" id="6vd-w1-KqE"/>
+                            <constraint firstItem="Gy2-Yw-zQX" firstAttribute="leading" secondItem="C1N-06-KHg" secondAttribute="leading" constant="10" id="G5o-6I-Pwd" userLabel="Info Page.leading = leading + 10"/>
+                            <constraint firstItem="Gy2-Yw-zQX" firstAttribute="top" secondItem="ayC-K3-yMB" secondAttribute="bottom" constant="75" id="Tto-L4-MtX"/>
+                            <constraint firstItem="Gy2-Yw-zQX" firstAttribute="trailing" secondItem="obM-B5-e9D" secondAttribute="trailing" id="ZXO-K0-aRK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Gy2-Yw-zQX" secondAttribute="trailing" constant="200" id="adp-1g-bnd"/>
+                            <constraint firstItem="Gy2-Yw-zQX" firstAttribute="top" secondItem="obM-B5-e9D" secondAttribute="top" id="oNQ-1g-OcX"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="jwe-Jd-qgP"/>
+                                <exclude reference="6vd-w1-KqE"/>
+                                <exclude reference="adp-1g-bnd"/>
                             </mask>
                         </variation>
                     </view>
@@ -178,27 +183,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQe-be-M1j">
-                                <rect key="frame" x="248" y="224" width="104" height="99"/>
+                                <rect key="frame" x="248" y="242" width="104" height="99"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <size key="titleShadowOffset" width="4" height="0.0"/>
-                                <state key="normal" image="Water Drop Button">
+                                <state key="normal" image="Water Drop Blue Border">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="8Og-5r-rhG" kind="show" id="RLx-kF-oKH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uxz-4F-56Z">
-                                <rect key="frame" x="248" y="106" width="104" height="99"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="104" id="eae-xf-9Uu"/>
-                                    <constraint firstAttribute="height" constant="99" id="gWM-fg-Vaz"/>
-                                </constraints>
-                                <state key="normal" image="ruler final">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Mpp-zR-ry8"/>
                                 </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W9T-28-ULJ">
@@ -208,15 +200,27 @@
                                     <barButtonItem id="LGl-FA-lnX"/>
                                 </items>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJT-fI-xDp">
-                                <rect key="frame" x="248" y="351" width="104" height="99"/>
-                                <state key="normal" image="Final Detox">
+                                <rect key="frame" x="248" y="360" width="104" height="99"/>
+                                <state key="normal" image="detox blue border">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="deleteAll" destination="ElK-HR-zNt" eventType="touchUpInside" id="GwW-Ix-XfZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uxz-4F-56Z">
+                                <rect key="frame" x="248" y="124" width="104" height="99"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="104" id="eae-xf-9Uu"/>
+                                    <constraint firstAttribute="height" constant="99" id="gWM-fg-Vaz"/>
+                                </constraints>
+                                <state key="normal" image="ruler blue border">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="Mpp-zR-ry8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -236,10 +240,10 @@
                             <constraint firstItem="sQe-be-M1j" firstAttribute="width" secondItem="Uxz-4F-56Z" secondAttribute="width" id="eyZ-I5-Q6y"/>
                             <constraint firstItem="GJT-fI-xDp" firstAttribute="width" secondItem="Uxz-4F-56Z" secondAttribute="width" id="fDc-zm-jLH"/>
                             <constraint firstItem="GJT-fI-xDp" firstAttribute="height" secondItem="Uxz-4F-56Z" secondAttribute="height" id="hPi-Gu-Q5c"/>
-                            <constraint firstItem="Uxz-4F-56Z" firstAttribute="top" secondItem="tSc-GW-p21" secondAttribute="bottom" constant="42" id="iM8-7c-IZb"/>
+                            <constraint firstItem="Uxz-4F-56Z" firstAttribute="top" secondItem="tSc-GW-p21" secondAttribute="bottom" constant="60" id="iM8-7c-IZb" userLabel="Button.top = Top Layout Guide.bottom + 52"/>
                             <constraint firstItem="W9T-28-ULJ" firstAttribute="leading" secondItem="2dt-Z3-OH6" secondAttribute="leading" id="lxt-EJ-Quy"/>
                             <constraint firstItem="GJT-fI-xDp" firstAttribute="height" secondItem="Uxz-4F-56Z" secondAttribute="height" id="mQE-tP-Wpl"/>
-                            <constraint firstItem="GJT-fI-xDp" firstAttribute="top" secondItem="sQe-be-M1j" secondAttribute="bottom" constant="28" id="nzw-6c-D3e"/>
+                            <constraint firstItem="GJT-fI-xDp" firstAttribute="top" secondItem="sQe-be-M1j" secondAttribute="bottom" constant="19" id="nzw-6c-D3e"/>
                             <constraint firstItem="Uxz-4F-56Z" firstAttribute="centerX" secondItem="2dt-Z3-OH6" secondAttribute="centerX" id="pl0-HD-zC5"/>
                             <constraint firstItem="GJT-fI-xDp" firstAttribute="width" secondItem="Uxz-4F-56Z" secondAttribute="width" id="rH0-df-VEu"/>
                             <constraint firstItem="sQe-be-M1j" firstAttribute="centerX" secondItem="Uxz-4F-56Z" secondAttribute="centerX" id="uOF-IN-RCC"/>
@@ -408,11 +412,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Final Detox" width="130" height="128"/>
         <image name="Image" width="26" height="38"/>
-        <image name="Info Page" width="401" height="500"/>
-        <image name="Water Drop Button" width="130" height="128"/>
-        <image name="ruler final" width="128" height="128"/>
+        <image name="Info Page" width="300" height="400"/>
+        <image name="Water Drop Blue Border" width="120" height="120"/>
+        <image name="detox blue border" width="120" height="120"/>
+        <image name="ruler blue border" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jly-37-lVh"/>

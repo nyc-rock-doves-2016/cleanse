@@ -22,7 +22,7 @@ class ViewController: UIViewController {
 //    
     func navigationBar() {
 //
-        let navigationTitleFont = UIFont(name: "Geoma Thin Demo", size: 40)!
+        let navigationTitleFont = UIFont(name: "Geoma Thin Demo", size: 35)!
         let nav =  self.navigationController?.navigationBar
 
         nav!.titleTextAttributes = [NSFontAttributeName: navigationTitleFont]
@@ -32,8 +32,8 @@ class ViewController: UIViewController {
 //        nav!.frame = CGRectMake(30, 0, 200, 30);
         nav!.setTitleVerticalPositionAdjustment(CGFloat(7), forBarMetrics: UIBarMetrics.Default)
 //
-//        self.navigationController?.navigationBar.barTintColor   = UIColor(red:0.60, green:1.00, blue:0.93, alpha:1.0)
-//                UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.blackColor()]
+        self.navigationController?.navigationBar.barTintColor   = UIColor.whiteColor()
+        // UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.blackColor()]
 //    
     }
     

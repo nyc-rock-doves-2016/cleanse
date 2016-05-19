@@ -25,7 +25,6 @@ class ViewController: UIViewController {
         nav!.titleTextAttributes = [NSFontAttributeName: navigationTitleFont]
 //        nav!.barStyle = UIBarStyle.Black // I then set the color using:
 //        nav!.tintColor = UIColor.blackColor() // for titles, buttons, etc.
-//        nav!.titleTextAttributes = [NSFontAttributeName: navigationTitleFont]
 //        nav!.frame = CGRectMake(30, 0, 200, 30);
         nav!.setTitleVerticalPositionAdjustment(CGFloat(7), forBarMetrics: UIBarMetrics.Default)
 //
@@ -58,7 +57,12 @@ class ViewController: UIViewController {
                 NSLog("\nDeleted Image -> %@", (success ? "Success":"Error!"))
                 if(success){
                     dispatch_async(dispatch_get_main_queue(), {
-                        print("Trashed")
+                        let alertController = UIAlertController(title: "Congrats!", message: "Your cleanse is complete.", preferredStyle: .Alert)
+                        let actionOk = UIAlertAction(title: "Dismiss", style: .Default, handler: { (UIAlertAction) -> Void in
+                            self.navigationController?.popToRootViewControllerAnimated(true)
+                        })
+                        alertController.addAction(actionOk)
+                        self.presentViewController(alertController, animated:true, completion:nil)
                     })
                 }else{
                     print("Error: \(error)")

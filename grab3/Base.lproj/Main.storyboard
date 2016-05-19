@@ -68,7 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xPI-oi-8Pl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2976" y="-930"/>
+            <point key="canvasLocation" x="3190" y="-938"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -168,7 +168,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="2CG-da-vUZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3864" y="-639"/>
+            <point key="canvasLocation" x="3864" y="-591"/>
         </scene>
         <!--cleanse-->
         <scene sceneID="JRA-we-e2Y">

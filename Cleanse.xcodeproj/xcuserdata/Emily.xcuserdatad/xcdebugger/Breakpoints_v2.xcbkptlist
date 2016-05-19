@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "grab3/ViewController.swift"
-            timestampString = "485290811.688351"
+            timestampString = "485367122.671934"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "deleteAll()"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "grab3/ViewController.swift"
-            timestampString = "485293676.908986"
+            timestampString = "485367122.671934"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "navigationBar()"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "grab3/SecondViewController.swift"
-            timestampString = "485315370.752677"
+            timestampString = "485367122.671934"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "fetchAndGetSize()"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "grab3/SecondViewController.swift"
-            timestampString = "485315370.752677"
+            timestampString = "485367122.671934"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "fetchAndGetSize()"
             landmarkType = "5">
          </BreakpointContent>

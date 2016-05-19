@@ -14,14 +14,11 @@ class ViewController: UIViewController {
     @IBAction func unwindToHere(segue: UIStoryboardSegue) { }
     
     override func viewDidLoad() {
-        
         self.navigationBar()
-        
     }
     
-//    
+
     func navigationBar() {
-//
         let navigationTitleFont = UIFont(name: "Geoma Thin Demo", size: 35)!
         let nav =  self.navigationController?.navigationBar
 

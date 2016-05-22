@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  grab3
-//
-//  Created by Emily on 5/13/16.
-//  Copyright © 20/Users/Emily/Desktop/grab3/grab3/ImageCollectionViewCell.swift16 emilyosowski. All rights reserved.
-//
-
 import UIKit
 import Photos
 
@@ -23,21 +15,16 @@ class ViewController: UIViewController {
         let nav =  self.navigationController?.navigationBar
 
         nav!.titleTextAttributes = [NSFontAttributeName: navigationTitleFont]
-//        nav!.barStyle = UIBarStyle.Black // I then set the color using:
-//        nav!.tintColor = UIColor.blackColor() // for titles, buttons, etc.
-//        nav!.frame = CGRectMake(30, 0, 200, 30);
         nav!.setTitleVerticalPositionAdjustment(CGFloat(7), forBarMetrics: UIBarMetrics.Default)
-//
+
         self.navigationController?.navigationBar.barTintColor   = UIColor.whiteColor()
-        // UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.blackColor()]
-//    
     }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let backItem = UIBarButtonItem()
         backItem.title = ""
-        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        navigationItem.backBarButtonItem = backItem
     }
     @IBAction func deleteAll() {
         if let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithMediaType(PHAssetMediaType.Image, options: nil) {

@@ -7,8 +7,8 @@ A simple and intuitive iOS app to declutter your photo library. Utilize our "siz
 
 #Team Members
 
-1) Kevin Perkins
+- Emily Osowski
 
-2) Emily Osowski
+- Kevin Perkins
 
-3) John Schwartz
+- John Schwartz

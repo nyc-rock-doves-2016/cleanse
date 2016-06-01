@@ -4,15 +4,7 @@
 //
 //  Created by Emily on 5/18/16.
 //  Copyright © 2016 emilyosowski. All rights reserved.
-//
 
-//
-//  SecondViewController.swift
-//  Cleanse
-//
-//  Created by Emily on 5/14/16.
-//  Copyright © 2016 emilyosowski. All rights reserved.
-//
 
 import UIKit
 import Photos

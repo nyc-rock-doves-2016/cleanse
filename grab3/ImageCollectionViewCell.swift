@@ -12,14 +12,10 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    // connects cell to imageview
-    
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
     }
-    
-    // no iteration just reusing 
 }
 
 

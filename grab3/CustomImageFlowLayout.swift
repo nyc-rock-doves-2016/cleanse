@@ -9,19 +9,16 @@
 import UIKit
 
 class CustomImageFlowLayout: UICollectionViewFlowLayout {
-    // inheritance gives it neccessary classes and methods
     
     override init() {
         super.init()
         setupLayout()
     }
-    // initialize method to setup layout immediately, inherits from super
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupLayout()
     }
-    // unsure
     
     override var itemSize: CGSize {
         set {
@@ -35,14 +32,9 @@ class CustomImageFlowLayout: UICollectionViewFlowLayout {
         }
     }
     
-    // changes the size of the columns and therefore the cells so it fits various interfaces
-    
     func setupLayout() {
         minimumInteritemSpacing = 1
         minimumLineSpacing = 1
         scrollDirection = .Vertical
     }
-    
-    // formatting initial layout
-    
 }

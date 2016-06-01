@@ -21,23 +21,18 @@ class ViewController: UIViewController {
     func navigationBar() {
         let navigationTitleFont = UIFont(name: "Geoma Thin Demo", size: 35)!
         let nav =  self.navigationController?.navigationBar
-
+        
         nav!.titleTextAttributes = [NSFontAttributeName: navigationTitleFont]
-//        nav!.barStyle = UIBarStyle.Black // I then set the color using:
-//        nav!.tintColor = UIColor.blackColor() // for titles, buttons, etc.
-//        nav!.frame = CGRectMake(30, 0, 200, 30);
         nav!.setTitleVerticalPositionAdjustment(CGFloat(7), forBarMetrics: UIBarMetrics.Default)
-//
+        
         self.navigationController?.navigationBar.barTintColor   = UIColor.whiteColor()
-        // UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.blackColor()]
-//    
     }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let backItem = UIBarButtonItem()
         backItem.title = ""
-        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        navigationItem.backBarButtonItem = backItem 
     }
     @IBAction func deleteAll() {
         if let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithMediaType(PHAssetMediaType.Image, options: nil) {

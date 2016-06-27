@@ -11,4 +11,4 @@ A simple and intuitive iOS app to declutter your photo library. Utilize our "siz
 
 - Kevin Perkins
 
-- John Schwartz
+- Jon Schwartz
